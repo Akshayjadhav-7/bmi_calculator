@@ -4,6 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'Icon_card.dart';
 import 'Result_page.dart';
+import 'RoundIconButton.dart';
+import 'Gesturedetector.dart';
+import 'calculatebrain.dart';
 enum Gender { male, female }
 
 class Inputpage extends StatefulWidget {
@@ -139,11 +142,9 @@ class _InputpageState extends State<Inputpage> {
                                 });
                               },
                               child: Icon(
-
                                 Icons.minimize_sharp,
                                 size: 30,
-                                color: Colors.white
-                                ,
+                                color: Colors.white,
                               ),
                             ),
                             SizedBox(
@@ -190,7 +191,6 @@ class _InputpageState extends State<Inputpage> {
                                 });
                               },
                               child: Icon(
-
                                 Icons.minimize_sharp,
                                 size: 30,
                                 color: Colors.white,
@@ -221,45 +221,22 @@ class _InputpageState extends State<Inputpage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Resultpage()),);
-            },
-            child: Container(
-              child: Center(child: Text('CALCULATE',style: lableText,)),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: KBottomconatinercolor,
-              ),
-              margin: EdgeInsets.all(15),
-              width: double.infinity,
-              height: KBottomcontainerheight,
-            ),
-          )
+          Gesturedetector(Buttontext: 'CALCULATE',ontap: () {
+            calculatebrain calc = calculatebrain(height: height, weight: weight);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Resultpage(
+                calculateBMI: calc.calculateBMI(),
+                BMIresult: calc.BMIresult(),
+                interpretation: calc.interpretation(),
+              ),),
+            );
+          },),
         ],
       ),
     );
   }
 }
 
-class RoundIconButton extends StatelessWidget {
-  // const RoundIconButton({Key key}) : super(key: key);
 
-  RoundIconButton({@required this.child, @required this.onPressed});
-  final Widget child;
-  final Function onPressed;
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: child,
-      onPressed: onPressed,
-      elevation: 6.0,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-    );
-  }
-}
+

@@ -14,3 +14,29 @@ const KNumbertextstyle = TextStyle(
   fontSize: 50,
   fontWeight: FontWeight.bold,
 );
+
+const Klargebutton = TextStyle(
+  fontSize: 20.0,
+  fontWeight: FontWeight.bold,
+);
+
+const KTextRsultpage = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
+
+const Kresultextstyle = TextStyle(
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+    color: Color(0xFF24D876),
+);
+
+const KBMIresult = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+
+);
+const KbodyResult = TextStyle(
+  fontSize: 20,
+
+);

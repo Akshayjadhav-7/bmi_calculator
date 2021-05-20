@@ -1,6 +1,6 @@
 
 
-# practice_layouts
+# BMI_Calculator
 
 
 ![News app flutter](https://github.com/Akshayjadhav-7/practice_layouts/blob/master/images/)
